@@ -1,0 +1,201 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    transition: all 0.5s ease;
+}
+
+.calculator {
+    width: 320px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calculator:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.display {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    text-align: right;
+    word-wrap: break-word;
+    word-break: break-all;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.previous-operand {
+    min-height: 24px;
+    font-size: 1rem;
+    color: #7f8c8d;
+    opacity: 0.8;
+}
+
+.current-operand {
+    min-height: 40px;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--dark-color);
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 12px;
+}
+
+button {
+    height: 65px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: white;
+    background-color: var(--primary-color);
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+button:focus:not(:active)::after {
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button[data-number] {
+    background-color: var(--dark-color);
+    font-weight: 500;
+}
+
+button[data-number]:hover {
+    background-color: #34495e;
+}
+
+button[data-action="operation"] {
+    background-color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+
+button[data-action="operation"]:hover {
+    background-color: #27ae60;
+}
+
+button[data-action="clear"] {
+    background-color: var(--accent-color);
+}
+
+button[data-action="clear"]:hover {
+    background-color: #c0392b;
+}
+
+button[data-action="delete"] {
+    background-color: #95a5a6;
+    color: white;
+}
+
+button[data-action="delete"]:hover {
+    background-color: #7f8c8d;
+}
+
+button[data-action="calculate"] {
+    background: linear-gradient(135deg, var(--secondary-color), #27ae60);
+    font-size: 1.5rem;
+}
+
+button[data-action="calculate"]:hover {
+    background: linear-gradient(135deg, #27ae60, #219653);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+/* Floating animation for the calculator */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.calculator {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Responsive design */
+@media (max-width: 400px) {
+    .calculator {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    button {
+        height: 55px;
+        font-size: 1.1rem;
+    }
+    
+    .current-operand {
+        font-size: 2rem;
+    }
+}
