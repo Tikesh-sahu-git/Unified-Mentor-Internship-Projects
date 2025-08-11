@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" type="image/png" href="card-games.png">
+    <title>Memory Card Game Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Memory Card Game Pro</h1>
+            <p>Match all pairs to win!</p>
+        </header>
+
+        <div class="difficulty-selector">
+            <button class="difficulty-btn active" data-difficulty="easy">Easy (4×4)</button>
+            <button class="difficulty-btn" data-difficulty="medium">Medium (5×4)</button>
+            <button class="difficulty-btn" data-difficulty="hard">Hard (6×4)</button>
+        </div>
+
+        <div class="game-controls">
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-value" id="moves">0</div>
+                    <div class="stat-label">Moves</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="time">0s</div>
+                    <div class="stat-label">Time</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="score">0</div>
+                    <div class="stat-label">Score</div>
+                </div>
+            </div>
+            <button class="btn" id="new-game-btn">New Game</button>
+        </div>
+
+        <div class="game-board grid-easy" id="game-board"></div>
+
+        <div class="win-message" id="win-message">
+            <div class="win-content">
+                <h2>Congratulations! 🎉</h2>
+                <p>You matched all pairs in <span id="final-moves">0</span> moves!</p>
+                <p>Time: <span id="final-time">0</span> seconds</p>
+                <div class="score">Your score: <span id="final-score">0</span></div>
+                <div class="stars" id="stars"></div>
+                <button class="btn" id="play-again-btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
