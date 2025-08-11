@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" type="image/png" href="countdown.png">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="scene">
+        <div class="container">
+            <h1 class="title">COUNTDOWN TIMER</h1>
+            
+            <div class="input-panel">
+                <div class="input-group">
+                    <label for="target-date">DATE</label>
+                    <input type="date" id="target-date" required>
+                </div>
+                <div class="input-group">
+                    <label for="target-time">TIME</label>
+                    <input type="time" id="target-time" required>
+                </div>
+                <button id="start-btn" class="glow-btn">START</button>
+                <button id="reset-btn" class="glow-btn">RESET</button>
+            </div>
+            
+            <div class="countdown-3d">
+                <div class="flip-card days">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span>00</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <span>00</span>
+                        </div>
+                    </div>
+                    <div class="label">DAYS</div>
+                </div>
+                <div class="colon">:</div>
+                <div class="flip-card hours">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span>00</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <span>00</span>
+                        </div>
+                    </div>
+                    <div class="label">HOURS</div>
+                </div>
+                <div class="colon">:</div>
+                <div class="flip-card minutes">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span>00</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <span>00</span>
+                        </div>
+                    </div>
+                    <div class="label">MINUTES</div>
+                </div>
+                <div class="colon">:</div>
+                <div class="flip-card seconds">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span>00</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <span>00</span>
+                        </div>
+                    </div>
+                    <div class="label">SECONDS</div>
+                </div>
+            </div>
+            
+            <div id="confetti-container"></div>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+    
+    <audio id="tick-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-clock-countdown-bleeps-916.mp3" preload="auto"></audio>
+    <audio id="complete-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3" preload="auto"></audio>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
